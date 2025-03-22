@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MagicVilla_Web.Models.VillaModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="container mt-5">
+        <h1>Villa List</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Rate</th>
+                    <th>Square Feet</th>
+                    <th>Occupancy</th>
+                    <th>Image</th>
+                    <th>Amenity</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var villa in Model)
+                {
+                    <tr>
+                        <td>@villa.Id</td>
+                        <td>@villa.Name</td>
+                        <td>@villa.Description</td>
+                        <td>@villa.Rate</td>
+                        <td>@villa.Sqft</td>
+                        <td>@villa.Occupancy</td>
+                        <td><img src="@villa.ImageUrl" alt="Image of @villa.Name" style="width: 100px; height: auto;" /></td>
+                        <td>@villa.Amenity</td>
+                        <td>@villa.CreatedDate.ToString("yyyy-MM-dd")</td>
+                        <td>@villa.UpdatedDate.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
